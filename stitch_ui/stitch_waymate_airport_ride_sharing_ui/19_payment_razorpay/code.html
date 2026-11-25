@@ -1,0 +1,233 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WayMate — Payment (Razorpay)</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'primary': '#1C1B18',
+        'on-primary': '#FAF7F0',
+        'primary-hover': '#32302D',
+        'surface': '#F3EBDD',
+        'on-surface': '#24231F',
+        'surface-card': '#FAF7F0',
+        'on-surface-card': '#24231F',
+        'surface-secondary': '#E8DDCA',
+        'on-surface-secondary': '#24231F',
+        'surface-muted': '#E9E2D4',
+        'secondary-text': '#5E594F',
+        'border': '#D8CEBD',
+        'border-strong': '#B1AA9E',
+        'success': '#526B50',
+        'on-success': '#FAF7F0',
+        'success-container': '#DCF9D6',
+        'on-success-container': '#1F361F',
+        'error': '#A34D40',
+        'on-error': '#FAF7F0',
+        'error-container': '#FFEDEA',
+        'on-error-container': '#5C1810',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '10px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '24px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '12px',
+        'gutter-lg': '16px',
+        'gutter-xl': '24px',
+        'section': '32px',
+        'page-margin': '20px',
+      },
+      fontFamily: {
+        'display': ['"Red Hat Text"', 'sans-serif'],
+        'headline': ['"Red Hat Text"', 'sans-serif'],
+        'title': ['"Instrument Sans"', 'sans-serif'],
+        'body': ['"Instrument Sans"', 'sans-serif'],
+        'label': ['"Instrument Sans"', 'sans-serif'],
+        'mono': ['"Spline Sans Mono"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['36px', { lineHeight: '42px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'display-lg-mobile': ['28px', { lineHeight: '34px', letterSpacing: '-0.3px', fontWeight: '700' }],
+        'headline-lg': ['24px', { lineHeight: '30px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'headline-md': ['20px', { lineHeight: '26px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'title-md': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['12px', { lineHeight: '17px', letterSpacing: '0.1px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'label-sm': ['11px', { lineHeight: '16px', letterSpacing: '0.4px', fontWeight: '600' }],
+        'mono-md': ['14px', { lineHeight: '20px', letterSpacing: '0.2px', fontWeight: '500' }],
+        'mono-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.2px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '120ms',
+        'surface-enter': '220ms',
+        'surface-exit': '150ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-exit': 'cubic-bezier(0.3, 0, 1, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@500;600;700&amp;family=Instrument+Sans:wght@400;500;600;700&amp;family=Spline+Sans+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased">
+  <div class="min-h-[884px] max-w-[390px] mx-auto bg-surface flex flex-col justify-between" data-stitch-vh="min-h-[884px]===min-h-screen">
+    <header class="px-page-margin pt-gutter-xl pb-gutter-md flex items-center justify-between">
+      <a href="../18-ride-completed/RideCompleted.html" aria-label="Go back" class="w-11 h-11 rounded-full bg-surface-card border border-border flex items-center justify-center text-on-surface">
+        <span class="material-symbols-outlined text-[20px]" aria-hidden="true">arrow_back</span>
+      </a>
+      <div class="inline-flex rounded-full bg-surface-secondary p-1 border border-border">
+        <button type="button" onclick="setPayView(&#39;checkout&#39;)" id="btn-checkout" class="px-3 py-1 rounded-full bg-primary text-on-primary font-label text-label-sm">Pay</button>
+        <button type="button" onclick="setPayView(&#39;receipt&#39;)" id="btn-receipt" class="px-3 py-1 rounded-full text-secondary-text font-label text-label-sm">Receipt</button>
+      </div>
+    </header>
+
+    <!-- View 1: Razorpay Checkout -->
+    <main id="view-checkout" class="flex-1 px-page-margin pb-gutter-xl flex flex-col justify-between gap-gutter-lg">
+      <div class="flex flex-col gap-gutter-lg">
+        <section class="flex flex-col gap-gutter-xs">
+          <h1 class="font-headline text-headline-lg text-on-surface" data-design-text-token="headline-lg">Complete Payment</h1>
+          <p class="font-body text-body-md text-secondary-text" data-design-text-token="body-md">Post-ride settlement via Razorpay. Cash is not supported.</p>
+        </section>
+
+        <!-- Fare Breakdown -->
+        <section class="bg-surface-card border border-border rounded-lg p-gutter-lg flex flex-col gap-gutter-md">
+          <div class="flex items-center justify-between">
+            <span class="font-body text-body-md text-secondary-text">Total cab fare</span>
+            <span class="font-mono text-mono-md text-on-surface tabular-nums">₹1,200</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="font-body text-body-md text-secondary-text">Individual passenger share (1/2)</span>
+            <span class="font-mono text-mono-md text-on-surface tabular-nums">₹600</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="font-body text-body-md text-secondary-text">Platform fee</span>
+            <span class="font-mono text-mono-md text-on-surface tabular-nums">₹25</span>
+          </div>
+          <div class="flex items-center justify-between pt-gutter-md border-t border-border">
+            <span class="font-title text-title-md text-on-surface">Final payable amount</span>
+            <span class="font-display text-display-lg-mobile text-on-surface tabular-nums">₹625</span>
+          </div>
+        </section>
+
+        <!-- Payment Methods (UPI / Razorpay Checkout) -->
+        <section class="flex flex-col gap-gutter-sm">
+          <span class="font-label text-label-sm text-secondary-text uppercase">Select payment method</span>
+          <label class="bg-surface-card border-2 border-primary rounded-lg p-gutter-md flex items-center justify-between cursor-pointer">
+            <div class="flex items-center gap-gutter-md">
+              <span class="w-10 h-10 rounded-md bg-primary text-on-primary flex items-center justify-center">
+                <span class="material-symbols-outlined text-[20px]" aria-hidden="true">qr_code_2</span>
+              </span>
+              <div>
+                <p class="font-title text-title-md text-on-surface">UPI via Razorpay</p>
+                <p class="font-body text-body-sm text-secondary-text">GPay, PhonePe, Paytm, BHIM</p>
+              </div>
+            </div>
+            <input type="radio" name="paymethod" checked class="text-primary focus:ring-primary">
+          </label>
+
+          <label class="bg-surface-card border border-border rounded-lg p-gutter-md flex items-center justify-between cursor-pointer">
+            <div class="flex items-center gap-gutter-md">
+              <span class="w-10 h-10 rounded-md bg-surface-secondary text-on-surface flex items-center justify-center">
+                <span class="material-symbols-outlined text-[20px]" aria-hidden="true">credit_card</span>
+              </span>
+              <div>
+                <p class="font-title text-title-md text-on-surface">Razorpay Checkout</p>
+                <p class="font-body text-body-sm text-secondary-text">Cards, Netbanking &amp; Wallets</p>
+              </div>
+            </div>
+            <input type="radio" name="paymethod" class="text-primary focus:ring-primary">
+          </label>
+        </section>
+      </div>
+
+      <button type="button" onclick="setPayView(&#39;receipt&#39;)" data-component-id="button-primary" data-component-type="button" data-component-variant="primary" class="inline-flex items-center justify-center min-h-[48px] w-full px-6 py-3 rounded-md bg-primary text-on-primary font-label text-label-lg hover:bg-primary-hover">
+        <span data-design-text-token="label-lg">Pay ₹625 with Razorpay</span>
+      </button>
+    </main>
+
+    <!-- View 2: Digital Receipt & Payment Success -->
+    <main id="view-receipt" class="hidden flex-1 px-page-margin pb-gutter-xl flex-col justify-between gap-gutter-lg">
+      <div class="flex flex-col gap-gutter-lg my-auto">
+        <div class="flex flex-col items-center text-center gap-gutter-sm">
+          <div class="w-16 h-16 rounded-full bg-success-container text-on-success-container flex items-center justify-center">
+            <span class="material-symbols-outlined text-[32px]" style="font-variation-settings: &#39;FILL&#39; 1;" aria-hidden="true">verified</span>
+          </div>
+          <h2 class="font-headline text-headline-lg text-on-surface">Payment Successful</h2>
+          <p class="font-body text-body-md text-secondary-text">Digital receipt generated for your pool ride.</p>
+        </div>
+
+        <section class="bg-surface-card border border-border rounded-lg p-gutter-lg flex flex-col gap-gutter-md">
+          <div class="flex items-center justify-between">
+            <span class="font-body text-body-sm text-secondary-text">Payment status</span>
+            <span class="px-2.5 py-0.5 rounded-full bg-success-container text-on-success-container font-label text-label-sm">Paid</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="font-body text-body-sm text-secondary-text">Transaction ID</span>
+            <span class="font-mono text-mono-sm text-on-surface tabular-nums">pay_Rzp98K21Lm44</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="font-body text-body-sm text-secondary-text">Method</span>
+            <span class="font-body text-body-sm text-on-surface font-medium">UPI (Razorpay)</span>
+          </div>
+          <div class="flex items-center justify-between pt-gutter-sm border-t border-border">
+            <span class="font-title text-title-md text-on-surface">Amount paid</span>
+            <span class="font-headline text-headline-md text-on-surface tabular-nums">₹625</span>
+          </div>
+        </section>
+      </div>
+
+      <a href="../20-rating-feedback/RatingFeedback.html" data-component-id="button-primary" data-component-type="button" data-component-variant="primary" class="inline-flex items-center justify-center min-h-[48px] w-full px-6 py-3 rounded-md bg-primary text-on-primary font-label text-label-lg hover:bg-primary-hover">
+        <span data-design-text-token="label-lg">Rate Your Driver</span>
+      </a>
+    </main>
+  </div>
+
+  <script>
+    function setPayView(view) {
+      const c = document.getElementById('view-checkout');
+      const r = document.getElementById('view-receipt');
+      const bc = document.getElementById('btn-checkout');
+      const br = document.getElementById('btn-receipt');
+      if (view === 'receipt') {
+        c.classList.add('hidden');
+        r.classList.remove('hidden');
+        r.classList.add('flex');
+        br.className = 'px-3 py-1 rounded-full bg-primary text-on-primary font-label text-label-sm';
+        bc.className = 'px-3 py-1 rounded-full text-secondary-text font-label text-label-sm';
+      } else {
+        r.classList.add('hidden');
+        r.classList.remove('flex');
+        c.classList.remove('hidden');
+        bc.className = 'px-3 py-1 rounded-full bg-primary text-on-primary font-label text-label-sm';
+        br.className = 'px-3 py-1 rounded-full text-secondary-text font-label text-label-sm';
+      }
+    }
+  </script>
+
+
+</body></html>

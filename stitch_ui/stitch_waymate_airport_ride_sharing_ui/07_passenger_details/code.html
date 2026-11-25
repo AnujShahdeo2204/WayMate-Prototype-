@@ -1,0 +1,183 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WayMate — Passenger Details</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'primary': '#1C1B18',
+        'on-primary': '#FAF7F0',
+        'primary-hover': '#32302D',
+        'surface': '#F3EBDD',
+        'on-surface': '#24231F',
+        'surface-card': '#FAF7F0',
+        'on-surface-card': '#24231F',
+        'surface-secondary': '#E8DDCA',
+        'on-surface-secondary': '#24231F',
+        'surface-muted': '#E9E2D4',
+        'secondary-text': '#5E594F',
+        'border': '#D8CEBD',
+        'border-strong': '#B1AA9E',
+        'success': '#526B50',
+        'on-success': '#FAF7F0',
+        'success-container': '#DCF9D6',
+        'on-success-container': '#1F361F',
+        'error': '#A34D40',
+        'on-error': '#FAF7F0',
+        'error-container': '#FFEDEA',
+        'on-error-container': '#5C1810',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '10px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '24px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '12px',
+        'gutter-lg': '16px',
+        'gutter-xl': '24px',
+        'section': '32px',
+        'page-margin': '20px',
+      },
+      fontFamily: {
+        'display': ['"Red Hat Text"', 'sans-serif'],
+        'headline': ['"Red Hat Text"', 'sans-serif'],
+        'title': ['"Instrument Sans"', 'sans-serif'],
+        'body': ['"Instrument Sans"', 'sans-serif'],
+        'label': ['"Instrument Sans"', 'sans-serif'],
+        'mono': ['"Spline Sans Mono"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['36px', { lineHeight: '42px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'display-lg-mobile': ['28px', { lineHeight: '34px', letterSpacing: '-0.3px', fontWeight: '700' }],
+        'headline-lg': ['24px', { lineHeight: '30px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'headline-md': ['20px', { lineHeight: '26px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'title-md': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['12px', { lineHeight: '17px', letterSpacing: '0.1px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'label-sm': ['11px', { lineHeight: '16px', letterSpacing: '0.4px', fontWeight: '600' }],
+        'mono-md': ['14px', { lineHeight: '20px', letterSpacing: '0.2px', fontWeight: '500' }],
+        'mono-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.2px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '120ms',
+        'surface-enter': '220ms',
+        'surface-exit': '150ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-exit': 'cubic-bezier(0.3, 0, 1, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@500;600;700&amp;family=Instrument+Sans:wght@400;500;600;700&amp;family=Spline+Sans+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased">
+  <div class="min-h-[884px] max-w-[390px] mx-auto bg-surface flex flex-col justify-between" data-stitch-vh="min-h-[884px]===min-h-screen">
+    <header class="px-page-margin pt-gutter-xl pb-gutter-md flex items-center justify-between">
+      <a href="../06-final-destination/FinalDestination.html" aria-label="Go back" class="w-11 h-11 rounded-full bg-surface-card border border-border flex items-center justify-center text-on-surface">
+        <span class="material-symbols-outlined text-[20px]" aria-hidden="true">arrow_back</span>
+      </a>
+      <span class="font-mono text-mono-sm text-secondary-text tabular-nums" data-design-text-token="mono-sm">Step 3 of 5</span>
+    </header>
+
+    <main class="flex-1 px-page-margin pb-gutter-xl flex flex-col gap-gutter-xl">
+      <section class="flex flex-col gap-gutter-xs">
+        <h1 class="font-headline text-headline-lg text-on-surface" data-design-text-token="headline-lg">Passenger Details</h1>
+        <p class="font-body text-body-md text-secondary-text text-pretty" data-design-text-token="body-md">Select the total number of seats you need, including yourself.</p>
+      </section>
+
+      <!-- Counter Card -->
+      <section class="bg-surface-card border border-border rounded-lg p-gutter-xl flex flex-col items-center gap-gutter-lg text-center">
+        <div class="w-14 h-14 rounded-full bg-surface-secondary flex items-center justify-center text-on-surface">
+          <span class="material-symbols-outlined text-[28px]" aria-hidden="true">person</span>
+        </div>
+
+        <div class="flex flex-col gap-gutter-xs">
+          <span class="font-title text-title-md text-on-surface" data-design-text-token="title-md">Number of passengers</span>
+          <span class="font-body text-body-sm text-secondary-text" data-design-text-token="body-sm">Includes you as the primary traveller</span>
+        </div>
+
+        <!-- Stepper Component -->
+        <div role="group" aria-label="Number of passengers" data-component-id="stepper-standard" data-component-type="stepper" data-component-variant="standard" class="inline-flex items-center gap-gutter-lg bg-surface border border-border rounded-md p-gutter-sm">
+          <button type="button" id="pax-dec" onclick="updatePax(-1)" aria-label="Decrease passengers" disabled class="w-12 h-12 rounded-sm bg-surface-secondary text-on-surface flex items-center justify-center disabled:opacity-40">
+            <span class="material-symbols-outlined text-[20px]" aria-hidden="true">remove</span>
+          </button>
+          <span id="pax-count" class="w-12 text-center font-display text-display-lg-mobile text-on-surface tabular-nums" data-design-text-token="display-lg-mobile">1</span>
+          <button type="button" id="pax-inc" onclick="updatePax(1)" aria-label="Increase passengers" class="w-12 h-12 rounded-sm bg-primary text-on-primary flex items-center justify-center hover:bg-primary-hover">
+            <span class="material-symbols-outlined text-[20px]" aria-hidden="true">add</span>
+          </button>
+        </div>
+
+        <p id="pax-note" class="font-body text-body-sm text-secondary-text" data-design-text-token="body-sm">1 seat reserved · Up to 3 co-travellers can join your pool</p>
+      </section>
+
+      <!-- Occupancy-based pricing preview -->
+      <section class="bg-surface-card border border-border rounded-lg p-gutter-lg flex flex-col gap-gutter-md">
+        <span class="font-label text-label-lg text-on-surface" data-design-text-token="label-lg">Estimated fare by pool size</span>
+        <div class="grid grid-cols-4 gap-gutter-sm text-center">
+          <div class="bg-surface rounded-md p-gutter-sm border border-border">
+            <span class="block font-body text-body-sm text-secondary-text">4 pax</span>
+            <span class="font-mono text-mono-md text-on-surface tabular-nums">₹400</span>
+          </div>
+          <div class="bg-surface rounded-md p-gutter-sm border border-border">
+            <span class="block font-body text-body-sm text-secondary-text">3 pax</span>
+            <span class="font-mono text-mono-md text-on-surface tabular-nums">₹500</span>
+          </div>
+          <div class="bg-surface rounded-md p-gutter-sm border border-border">
+            <span class="block font-body text-body-sm text-secondary-text">2 pax</span>
+            <span class="font-mono text-mono-md text-on-surface tabular-nums">₹600</span>
+          </div>
+          <div class="bg-surface-secondary rounded-md p-gutter-sm border border-border">
+            <span class="block font-body text-body-sm text-secondary-text">Solo</span>
+            <span class="font-mono text-mono-md text-on-surface tabular-nums">₹1,200</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="px-page-margin pb-gutter-xl pt-gutter-sm">
+      <a href="../08-luggage-details/LuggageDetails.html" data-component-id="button-primary" data-component-type="button" data-component-variant="primary" class="inline-flex items-center justify-center min-h-[48px] w-full px-6 py-3 rounded-md bg-primary text-on-primary font-label text-label-lg hover:bg-primary-hover transition-colors duration-state-change">
+        <span data-design-text-token="label-lg">Continue to Luggage</span>
+      </a>
+    </footer>
+  </div>
+
+  <script>
+    let pax = 1;
+    function updatePax(delta) {
+      pax = Math.min(4, Math.max(1, pax + delta));
+      document.getElementById('pax-count').textContent = pax;
+      document.getElementById('pax-dec').disabled = pax <= 1;
+      document.getElementById('pax-inc').disabled = pax >= 4;
+      const remaining = 4 - pax;
+      document.getElementById('pax-note').textContent = remaining > 0
+        ? `${pax} seat${pax > 1 ? 's' : ''} reserved · Up to ${remaining} co-traveller${remaining > 1 ? 's' : ''} can join your pool`
+        : '4 seats reserved · Full vehicle occupied by your group';
+    }
+  </script>
+
+
+</body></html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WayMate — Driver Details</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'primary': '#1C1B18',
+        'on-primary': '#FAF7F0',
+        'primary-hover': '#32302D',
+        'surface': '#F3EBDD',
+        'on-surface': '#24231F',
+        'surface-card': '#FAF7F0',
+        'on-surface-card': '#24231F',
+        'surface-secondary': '#E8DDCA',
+        'on-surface-secondary': '#24231F',
+        'surface-muted': '#E9E2D4',
+        'secondary-text': '#5E594F',
+        'border': '#D8CEBD',
+        'border-strong': '#B1AA9E',
+        'success': '#526B50',
+        'on-success': '#FAF7F0',
+        'success-container': '#DCF9D6',
+        'on-success-container': '#1F361F',
+        'error': '#A34D40',
+        'on-error': '#FAF7F0',
+        'error-container': '#FFEDEA',
+        'on-error-container': '#5C1810',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '10px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '24px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '12px',
+        'gutter-lg': '16px',
+        'gutter-xl': '24px',
+        'section': '32px',
+        'page-margin': '20px',
+      },
+      fontFamily: {
+        'display': ['"Red Hat Text"', 'sans-serif'],
+        'headline': ['"Red Hat Text"', 'sans-serif'],
+        'title': ['"Instrument Sans"', 'sans-serif'],
+        'body': ['"Instrument Sans"', 'sans-serif'],
+        'label': ['"Instrument Sans"', 'sans-serif'],
+        'mono': ['"Spline Sans Mono"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['36px', { lineHeight: '42px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'display-lg-mobile': ['28px', { lineHeight: '34px', letterSpacing: '-0.3px', fontWeight: '700' }],
+        'headline-lg': ['24px', { lineHeight: '30px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'headline-md': ['20px', { lineHeight: '26px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'title-md': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['12px', { lineHeight: '17px', letterSpacing: '0.1px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'label-sm': ['11px', { lineHeight: '16px', letterSpacing: '0.4px', fontWeight: '600' }],
+        'mono-md': ['14px', { lineHeight: '20px', letterSpacing: '0.2px', fontWeight: '500' }],
+        'mono-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.2px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '120ms',
+        'surface-enter': '220ms',
+        'surface-exit': '150ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-exit': 'cubic-bezier(0.3, 0, 1, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@500;600;700&amp;family=Instrument+Sans:wght@400;500;600;700&amp;family=Spline+Sans+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased">
+  <div class="min-h-[884px] max-w-[390px] mx-auto bg-surface flex flex-col justify-between" data-stitch-vh="min-h-[884px]===min-h-screen">
+    <header class="px-page-margin pt-gutter-xl pb-gutter-md flex items-center justify-between">
+      <a href="../11-pool-available/PoolAvailable.html" aria-label="Go back" class="w-11 h-11 rounded-full bg-surface-card border border-border flex items-center justify-center text-on-surface">
+        <span class="material-symbols-outlined text-[20px]" aria-hidden="true">arrow_back</span>
+      </a>
+      <span data-component-id="badge-success" data-component-type="badge" data-component-variant="success" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-success-container text-on-success-container font-label text-label-sm">
+        <span class="material-symbols-outlined text-[14px]" aria-hidden="true">verified</span>
+        <span>Verified Driver</span>
+      </span>
+    </header>
+
+    <main class="flex-1 px-page-margin pb-gutter-xl flex flex-col gap-gutter-xl">
+      <!-- Driver Profile Hero -->
+      <section class="bg-surface-card border border-border rounded-lg p-gutter-xl flex flex-col items-center text-center gap-gutter-md">
+        <img src="https://lh3.googleusercontent.com/aida/ALJJyrDmIJqvwnE85InZ-GMFWFX_4EAlJX5yP8E_zYUo6lIvGtQdJW4YLg0kWDMvgEqEWYml1CZKttPEqAs58MB4H-mCBbZ5mh1Cnf1pq6GoYCbmzujYm3LkL0OoC9aqnlbhrrjkZxL_oUfZAQzI2IOVXRuL_e6w9lVI57RErlmHzmDKpZwmOro9MmFGO-L8vbjwm57wG432IbXlaseQjy8aDhpiGvooFLUog6ihxYvbZCdvzWBP0q0" alt="Rajesh Kumar" class="w-24 h-24 rounded-full object-cover border-2 border-primary">
+        <div class="flex flex-col gap-gutter-xs">
+          <h1 class="font-headline text-headline-lg text-on-surface" data-design-text-token="headline-lg">Rajesh Kumar</h1>
+          <div class="flex items-center justify-center gap-gutter-md">
+            <span class="inline-flex items-center gap-1 font-mono text-mono-md text-on-surface tabular-nums">
+              <span class="material-symbols-outlined text-[18px] text-primary" style="font-variation-settings: &#39;FILL&#39; 1;" aria-hidden="true">star</span>
+              4.9
+            </span>
+            <span class="text-border-strong">·</span>
+            <span class="font-body text-body-md text-secondary-text tabular-nums">412 completed trips</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Vehicle & Verification Info -->
+      <section class="bg-surface-card border border-border rounded-lg p-gutter-lg flex flex-col gap-gutter-md">
+        <div class="flex items-center justify-between">
+          <span class="font-body text-body-md text-secondary-text">Vehicle model</span>
+          <span class="font-title text-title-md text-on-surface">Maruti Ertiga (White)</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="font-body text-body-md text-secondary-text">Registration number</span>
+          <span class="font-mono text-mono-md text-on-surface tabular-nums">DL 1C AB 4829</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="font-body text-body-md text-secondary-text">Languages spoken</span>
+          <span class="font-body text-body-md text-on-surface font-medium">Hindi, English</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="font-body text-body-md text-secondary-text">Background &amp; vehicle check</span>
+          <span class="font-label text-label-sm text-success">Verified</span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="px-page-margin pb-gutter-xl pt-gutter-sm flex flex-col gap-gutter-sm">
+      <button type="button" data-component-id="button-with-icon" data-component-type="button" data-component-variant="with-icon" class="inline-flex items-center justify-center gap-2 min-h-[48px] w-full px-6 py-3 rounded-md bg-primary text-on-primary font-label text-label-lg hover:bg-primary-hover">
+        <span class="material-symbols-outlined text-[18px]" aria-hidden="true">call</span>
+        <span data-design-text-token="label-lg">Contact Driver</span>
+      </button>
+      <a href="../15-pool-confirmation/PoolConfirmation.html" class="inline-flex items-center justify-center min-h-[44px] w-full font-label text-label-lg text-on-surface underline">Back to Pool Summary</a>
+    </footer>
+  </div>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('a, button').forEach(el => {
+        el.addEventListener('click', function(e) {
+            const href = el.getAttribute('href') || '';
+            const text = el.innerText || '';
+            
+            // Send click intent to parent frame
+            window.parent.postMessage({
+                type: 'WAYMATE_NAV',
+                href: href,
+                text: text.trim()
+            }, '*');
+            
+            if (href && (href.startsWith('#') || href.startsWith('javascript:'))) {
+                return;
+            }
+            if (href) {
+                e.preventDefault();
+            }
+        });
+    });
+});
+</script>
+</body></html>

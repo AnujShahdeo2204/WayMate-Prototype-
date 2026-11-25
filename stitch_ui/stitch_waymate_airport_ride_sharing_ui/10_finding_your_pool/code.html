@@ -1,0 +1,159 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WayMate — Finding Your Pool</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'primary': '#1C1B18',
+        'on-primary': '#FAF7F0',
+        'primary-hover': '#32302D',
+        'surface': '#F3EBDD',
+        'on-surface': '#24231F',
+        'surface-card': '#FAF7F0',
+        'on-surface-card': '#24231F',
+        'surface-secondary': '#E8DDCA',
+        'on-surface-secondary': '#24231F',
+        'surface-muted': '#E9E2D4',
+        'secondary-text': '#5E594F',
+        'border': '#D8CEBD',
+        'border-strong': '#B1AA9E',
+        'success': '#526B50',
+        'on-success': '#FAF7F0',
+        'success-container': '#DCF9D6',
+        'on-success-container': '#1F361F',
+        'error': '#A34D40',
+        'on-error': '#FAF7F0',
+        'error-container': '#FFEDEA',
+        'on-error-container': '#5C1810',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '10px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '24px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '12px',
+        'gutter-lg': '16px',
+        'gutter-xl': '24px',
+        'section': '32px',
+        'page-margin': '20px',
+      },
+      fontFamily: {
+        'display': ['"Red Hat Text"', 'sans-serif'],
+        'headline': ['"Red Hat Text"', 'sans-serif'],
+        'title': ['"Instrument Sans"', 'sans-serif'],
+        'body': ['"Instrument Sans"', 'sans-serif'],
+        'label': ['"Instrument Sans"', 'sans-serif'],
+        'mono': ['"Spline Sans Mono"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['36px', { lineHeight: '42px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'display-lg-mobile': ['28px', { lineHeight: '34px', letterSpacing: '-0.3px', fontWeight: '700' }],
+        'headline-lg': ['24px', { lineHeight: '30px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'headline-md': ['20px', { lineHeight: '26px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'title-md': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['12px', { lineHeight: '17px', letterSpacing: '0.1px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'label-sm': ['11px', { lineHeight: '16px', letterSpacing: '0.4px', fontWeight: '600' }],
+        'mono-md': ['14px', { lineHeight: '20px', letterSpacing: '0.2px', fontWeight: '500' }],
+        'mono-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.2px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '120ms',
+        'surface-enter': '220ms',
+        'surface-exit': '150ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-exit': 'cubic-bezier(0.3, 0, 1, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@500;600;700&amp;family=Instrument+Sans:wght@400;500;600;700&amp;family=Spline+Sans+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased">
+  <div class="min-h-[884px] max-w-[390px] mx-auto bg-surface flex flex-col justify-between" data-stitch-vh="min-h-[884px]===min-h-screen">
+    <header class="px-page-margin pt-gutter-xl pb-gutter-md flex items-center justify-between">
+      <a href="../09-language-preference/LanguagePreference.html" aria-label="Go back" class="w-11 h-11 rounded-full bg-surface-card border border-border flex items-center justify-center text-on-surface">
+        <span class="material-symbols-outlined text-[20px]" aria-hidden="true">arrow_back</span>
+      </a>
+      <span data-component-id="badge-success" data-component-type="badge" data-component-variant="success" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-success-container text-on-success-container font-label text-label-sm">
+        <span data-design-text-token="label-sm">Preparing Pool</span>
+      </span>
+    </header>
+
+    <main class="flex-1 px-page-margin pb-gutter-xl flex flex-col gap-gutter-xl">
+      <!-- Flight & Route Summary -->
+      <section class="bg-surface-card border border-border rounded-lg p-gutter-lg flex flex-col gap-gutter-md">
+        <div class="flex items-center justify-between">
+          <span class="font-mono text-mono-sm text-secondary-text tabular-nums" data-design-text-token="mono-sm">FLIGHT AI 696 · 26 NOV · 10:30 AM</span>
+          <span class="material-symbols-outlined text-[18px] text-on-surface" aria-hidden="true">flight_land</span>
+        </div>
+        <div class="flex flex-col gap-gutter-xs">
+          <p class="font-title text-title-md text-on-surface" data-design-text-token="title-md">DEL – Indira Gandhi Int&#39;l (T3)</p>
+          <p class="font-body text-body-md text-secondary-text" data-design-text-token="body-md">→ Noida Sector 62, Stellar IT Park</p>
+        </div>
+      </section>
+
+      <!-- Subtle Matching Progress -->
+      <section class="flex flex-col gap-gutter-md">
+        <div class="flex flex-col gap-gutter-xs">
+          <h1 class="font-headline text-headline-lg text-on-surface text-balance" data-design-text-token="headline-lg">Finding travellers near your route...</h1>
+          <p class="font-body text-body-md text-secondary-text text-pretty" data-design-text-token="body-md">WayMate matches passengers arriving around 10:30 AM with compatible luggage and driving routes.</p>
+        </div>
+
+        <!-- Subtle Progress Bar -->
+        <div class="w-full h-2 rounded-full bg-surface-secondary overflow-hidden" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+          <div class="w-1/2 h-full rounded-full bg-primary"></div>
+        </div>
+
+        <!-- Seat & Route Match Status -->
+        <div class="bg-surface-card border border-border rounded-lg p-gutter-lg flex flex-col gap-gutter-md">
+          <div class="flex items-center justify-between">
+            <span class="font-headline text-headline-md text-on-surface tabular-nums" data-design-text-token="headline-md">2 of 4 seats matched</span>
+            <span class="font-mono text-mono-sm text-secondary-text tabular-nums" data-design-text-token="mono-sm">50%</span>
+          </div>
+          <p class="font-body text-body-md text-secondary-text text-pretty" data-design-text-token="body-md">Potential passengers travelling towards <span class="text-on-surface font-medium">Noida Sector 62–65</span>.</p>
+          <div class="pt-gutter-sm border-t border-border flex items-center justify-between">
+            <span class="font-body text-body-sm text-secondary-text" data-design-text-token="body-sm">Estimated waiting time</span>
+            <span class="font-mono text-mono-md text-on-surface tabular-nums" data-design-text-token="mono-md">8 minutes</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="px-page-margin pb-gutter-xl pt-gutter-sm flex flex-col gap-gutter-sm">
+      <a href="../11-pool-available/PoolAvailable.html" data-component-id="button-primary" data-component-type="button" data-component-variant="primary" class="inline-flex items-center justify-center min-h-[48px] w-full px-6 py-3 rounded-md bg-primary text-on-primary font-label text-label-lg hover:bg-primary-hover transition-colors duration-state-change">
+        <span data-design-text-token="label-lg">View Available Pool</span>
+      </a>
+      <a href="../04-home/HomeDashboard.html" class="inline-flex items-center justify-center min-h-[44px] w-full font-label text-label-lg text-secondary-text hover:text-on-surface">
+        <span data-design-text-token="label-lg">Cancel matching</span>
+      </a>
+    </footer>
+  </div>
+
+
+</body></html>
